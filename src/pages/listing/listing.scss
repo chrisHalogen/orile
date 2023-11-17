@@ -1,0 +1,84 @@
+@import "../../styles/global.scss";
+
+.listing {
+  @include page-container();
+
+  .all-listing {
+    min-height: 100px;
+    max-height: 350px;
+    // padding: 2rem 0;
+    overflow-y: auto;
+
+    /* width */
+    &::-webkit-scrollbar {
+      width: 0.5rem;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: $dark-bg;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: $soft-color;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba($color: $soft-color, $alpha: 0.75);
+    }
+
+    .category-title {
+      @include font-quat();
+      font-size: 1.75rem;
+      font-weight: bold;
+      color: $dark-color;
+      padding-right: 0.5rem;
+      // margin: 1rem 0;
+
+      @include below-screen(500px) {
+        font-size: 1.25rem;
+      }
+
+      @include below-screen(325px) {
+        font-size: 1.1rem;
+      }
+    }
+
+    p.category-item {
+      color: $main-color;
+      font-size: 1.1rem;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding-right: 0.5rem;
+      margin: 0.5rem 0;
+
+      @include below-screen(500px) {
+        font-size: 0.9rem;
+      }
+
+      // @include below-screen(325px) {
+      //   font-size: 0.75rem;
+      // }
+
+      .item-price {
+        font-size: 2rem;
+        font-weight: bold;
+        @include font-quat();
+        text-align: right;
+
+        @include below-screen(500px) {
+          font-size: 1.75rem;
+        }
+
+        @include below-screen(400px) {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}

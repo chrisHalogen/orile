@@ -1,0 +1,43 @@
+@import "../../styles/global.scss";
+
+.btn-bg-container {
+  display: flex;
+  justify-content: center;
+
+  .btn-bg {
+    color: $main-bg;
+    background-color: $theme-color;
+    padding: 1rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 1rem;
+
+    @include below-screen(300px) {
+      font-size: 0.85rem;
+    }
+
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    transition: 0.25s ease;
+
+    svg {
+      font-size: 1.25rem;
+      transform: translateX(0);
+      transition: 0.25s ease;
+
+      @include below-screen(340px) {
+        display: none;
+      }
+    }
+
+    &:hover {
+      background-color: rgba($color: $theme-color, $alpha: 0.9);
+
+      svg {
+        transform: translateX(8px);
+      }
+    }
+  }
+}

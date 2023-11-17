@@ -1,0 +1,182 @@
+// Imports The font
+@import url("https://fonts.googleapis.com/css2?family=Alice&family=Quattrocento:wght@700&display=swap");
+
+// Background Color Variables
+$main-bg: #ffffff;
+$soft-bg: #eef0f2;
+$dark-bg: #dadee1;
+
+// Text Color Variables
+$dark-color: #1b1f24;
+$main-color: #414141;
+$soft-color: #b1b1b1;
+
+// Theme Color
+$theme-color: $dark-color;
+// $theme-color-2: #65c979;#c9a039
+// $theme-color-aux: #3e7d4b;
+
+$breakpoint-480: 480px;
+$breakpoint-600: 600px;
+$breakpoint-900: 900px;
+$breakpoint-1200: 1200px;
+$breakpoint-1200: 1400px;
+
+@mixin below-1400 {
+  @media (max-width: $breakpoint-1400) {
+    @content;
+  }
+}
+
+@mixin below-1200 {
+  @media (max-width: $breakpoint-1200) {
+    @content;
+  }
+}
+
+@mixin below-900 {
+  @media (max-width: $breakpoint-900) {
+    @content;
+  }
+}
+
+@mixin below-600 {
+  @media (max-width: $breakpoint-600) {
+    @content;
+  }
+}
+
+@mixin below-480 {
+  @media (max-width: $breakpoint-480) {
+    @content;
+  }
+}
+
+@mixin below-screen($screen-size) {
+  @media (max-width: $screen-size) {
+    @content;
+  }
+}
+
+@mixin font-quat {
+  font-family: "Quattrocento", serif;
+}
+
+@mixin font-alice {
+  font-family: "Alice", serif;
+}
+
+@mixin title-text {
+  font-weight: 700;
+  font-size: 5rem;
+  line-height: 1.1;
+
+  @include below-900() {
+    font-size: 3.5rem;
+  }
+
+  @include below-480() {
+    font-size: 2.5rem;
+  }
+}
+
+@mixin header-text {
+  font-weight: 700;
+  font-size: 3.5rem;
+
+  @include below-900() {
+    font-size: 2.75rem;
+  }
+
+  @include below-480() {
+    font-size: 2.25rem;
+  }
+}
+
+@mixin regular-text {
+  font-weight: 400;
+  font-size: 1.1rem;
+}
+
+@mixin small-text {
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+
+@mixin outer-box() {
+  width: 100%;
+}
+
+@mixin inner-box() {
+  width: 100%;
+  max-width: 1400px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include below-1200() {
+    max-width: 1200px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@mixin flex-container($justify: space-between) {
+  display: flex;
+  justify-content: $justify;
+  align-items: center;
+
+  @include below-1200() {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  @include below-screen(500px) {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  @include below-screen(325px) {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+@mixin hero-below-menu() {
+  margin-top: -5rem;
+  padding-top: 5rem;
+
+  @include below-1200() {
+    margin-top: 0rem;
+    padding-top: 0rem;
+  }
+}
+
+@mixin spacer($height: 2rem) {
+  height: $height;
+}
+
+@mixin page-container() {
+  background-color: $main-bg;
+  border-top: 8px solid $theme-color;
+  padding: 2rem;
+  box-shadow: 0px 2rem 2rem 0 rgba($color: $dark-color, $alpha: 0.05);
+
+  @include below-screen(500px) {
+    padding: 2rem 1.5rem;
+  }
+}
+
+.global-paragraph {
+  font-size: 1.1rem;
+  text-align: center;
+  color: $main-color;
+
+  @include below-screen(500px) {
+    font-size: 1rem;
+    line-height: 1.35;
+  }
+
+  @include below-screen(380px) {
+    font-size: 0.85rem;
+  }
+}

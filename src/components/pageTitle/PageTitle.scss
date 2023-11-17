@@ -1,0 +1,17 @@
+@import "../../styles/global.scss";
+
+.title {
+  @include font-quat();
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  color: $dark-color;
+
+  @include below-screen(500px) {
+    font-size: 2rem;
+  }
+
+  @include below-screen(325px) {
+    font-size: 1.5rem;
+  }
+}
