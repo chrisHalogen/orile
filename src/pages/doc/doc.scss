@@ -1,0 +1,45 @@
+@import "../../styles/global.scss";
+
+body {
+  background-color: $soft-bg;
+}
+
+.doc-reader-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  flex-direction: column;
+  background-color: $soft-bg;
+
+  .react-pdf__Page__textContent.textLayer,
+  .react-pdf__Page__annotations.annotationLayer {
+    display: none;
+  }
+
+  .page-navigation {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    .nav-icon-container {
+      background-color: $theme-color;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 0.25rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.25s ease;
+
+      svg {
+        font-size: 1rem;
+        color: $main-bg;
+      }
+
+      &:hover {
+        background-color: rgba($color: $theme-color, $alpha: 0.8);
+      }
+    }
+  }
+}

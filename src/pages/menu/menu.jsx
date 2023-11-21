@@ -23,7 +23,11 @@ const Menu = () => {
 
       <div className="dining-options">
         {dining_options.map((item) => (
-          <Link to={`/menu/${item.id}`} className="listing-link" key={item.id}>
+          <Link
+            to={`/menu/doc/${item.id}`}
+            className="listing-link"
+            key={item.id}
+          >
             <div className="single" key={item.id}>
               <p className="option-name">{item.name}</p>
               <span className="option-description">{item.description}</span>

@@ -6,7 +6,7 @@ import {
   Link,
 } from "react-router-dom";
 import "./styles/main.scss";
-import { Home, Menu, Listing } from "./pages";
+import { Home, Menu, Listing, DocReader } from "./pages";
 import { bg_images } from "./data";
 
 const App = () => {
@@ -60,6 +60,10 @@ const App = () => {
           element: <Listing />,
         },
       ],
+    },
+    {
+      path: "/menu/doc/:id",
+      element: <DocReader />,
     },
   ]);
 

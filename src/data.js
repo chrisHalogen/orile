@@ -470,6 +470,7 @@ export const dining_options = [
       "Start your day on a delicious note. Dive into our morning menu filled with energizing choices that will fuel your day.",
     id: 1,
     slug: "breakfast-menu",
+    doc: "/breakfast.pdf",
     menu: [
       {
         type: "Food",
@@ -755,6 +756,7 @@ export const dining_options = [
       "Midday calls for a satisfying meal. Discover a range of flavorful options crafted to make your lunch an unforgettable experience.",
     id: 2,
     slug: "lunch-menu",
+    doc: "/lunch.pdf",
     menu: [
       {
         type: "Starters",
@@ -1158,6 +1160,7 @@ export const dining_options = [
     description:
       "As the day winds down, treat yourself to the sumptuous flavors of our dinner offerings. From savory dishes to decadent desserts, our dinner menu is designed to elevate your evening.",
     id: 3,
+    doc: "/dinner.pdf",
     slug: "dinner-menu",
     menu: [
       {
