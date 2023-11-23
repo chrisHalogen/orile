@@ -1,7 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-// import { Document, Page } from "react-pdf";
-import { Document, Page, pdfjs } from "react-pdf";
 
 import { dining_options } from "../../data";
 import "./doc.scss";
@@ -9,12 +7,29 @@ import { ButtonBack, Spacer } from "../../components";
 
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa6";
 
+// ----------------------------------
+// ----------------------------------
+
 const DocReader = () => {
   const { id } = useParams();
   const data = dining_options[id - 1].doc;
   const navigate = useNavigate();
 
-  pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+  if (!data) {
+    navigate("/");
+  }
+
+  return (
+    <div className="webviewer">
+      <iframe src={data} frameborder="0" width="100%"></iframe>
+    </div>
+  );
+};
+
+const DocReader_ = () => {
+  const { id } = useParams();
+  const data = dining_options[id - 1].doc;
+  const navigate = useNavigate();
 
   if (!data) {
     navigate("/");
@@ -35,27 +50,7 @@ const DocReader = () => {
     setPageNumber(pageNumber >= numPages ? pageNumber : pageNumber + 1);
   };
 
-  return (
-    <div className="doc-reader-wrap">
-      <ButtonBack text="Back to Menus" url="/menu" />
-
-      <Spacer height="1rem" />
-
-      <div className="page-navigation">
-        <div className="nav-icon-container" onClick={prevPage}>
-          <FaArrowLeft />
-        </div>
-        <div className="nav-icon-container" onClick={nextPage}>
-          <FaArrowRight />
-        </div>
-      </div>
-
-      <Spacer height="1rem" />
-      <Document file={data} onLoadSuccess={onDocumentSuccess}>
-        <Page pageNumber={pageNumber}></Page>
-      </Document>
-    </div>
-  );
+  return <div className="doc-reader-wrap">{""}</div>;
 };
 
 export default DocReader;
